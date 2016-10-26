@@ -1,0 +1,24 @@
+<div class="row">
+  <input type="text" placeholder="search" ng-model="$root.searchFor"></input>
+    <select class="browser-default" ng-model="$root.sortBy">
+      <option value="" disabled selected>Sort by Category</option>
+      <option value="">Show All</option>
+      <option value="{{ category }}"ng-repeat="category in vm.allCategories track by $index">{{ category }}</option>
+    </select>
+  <div class="col s12 m4">
+    <div class="card blue-grey">
+      <div class="card-content white-text">
+        <span class="card-title">Your Cart</span>
+        <ul ng-repeat="product in $root.cart">
+          <li>{{ product.name }} {{ product.price | currency }} {{ product.quantity > 1 ? 'x' + product.quantity : ''}}</li>
+        </ul>
+      </div>
+      <div class="card-action" ng-if="$root.cart.length">
+        <p>Subtotal: {{ $root.subtotal | currency}}</p>
+        <p>Tax: {{ $root.tax | currency}}</p>
+        <p>Total: {{ $root.total | currency}}</p>
+        <a href="#">Checkout</a>
+      </div>
+    </div>
+  </div>
+</div>

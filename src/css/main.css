@@ -1,0 +1,21 @@
+/* add custom styles */
+.picBox {
+  float: left;
+}
+
+.bigBox {
+  padding: 5px;
+  border: 1px solid;
+}
+
+nav {
+  margin-bottom: 5px;
+}
+
+.rightButton {
+  float: right;
+}
+
+select {
+  margin: 2px;
+}

@@ -1,0 +1,19 @@
+<div ng-repeat="item in vm.data | filter:$root.sortBy | filter:{name: $root.searchFor}" class="row bigBox">
+  <div class="picBox">
+    <img ng-src="{{ item.imageUrl }}"></img>
+  </div>
+  <div class="infoBox">
+    <p>{{ item.name }}</p>
+    <p>{{ item.price | currency }}</p>
+    <p>Ingredients: {{ item.ingredients }}</p>
+    <ul>
+      <li>Categories: </li>
+      <li ng-repeat="category in item.categories">{{ category }}</li>
+    </ul>
+    <select class="browser-default" required ng-model="quantity">
+      <optgroup label="Quantity"></optgroup>
+      <option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]">{{ num }}</option>
+    </select>
+    <button class="rightButton" ng-click="vm.addToCart(quantity, item)">Add to Cart</button>
+  </div>
+</div>
